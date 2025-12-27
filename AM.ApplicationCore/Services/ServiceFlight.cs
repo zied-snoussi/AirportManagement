@@ -132,7 +132,81 @@ namespace AM.ApplicationCore.Services
             return result.Any() ? result.Average() : 0;
         }
 
+        // Q13: Get flights ordered by duration (longest to shortest)
+        public List<Flight> GetOrderedFlightsByDuration()
+        {
+            return Flights
+                .OrderByDescending(f => f.EstimatedDuration)
+                .ToList();
+        }
 
+        // Q14: Get 3 senior (oldest) travellers from a flight
+        public List<Traveller> GetSeniorTravellers(Flight flight)
+        {
+            return flight.Passengers
+                .OfType<Traveller>()
+                .OrderBy(t => t.BirthDate)
+                .Take(3)
+                .ToList();
+        }
+
+        // Q15: Group flights by destination and display
+        public void ShowFlightsGroupedByDestination()
+        {
+            var groupedFlights = Flights
+                .GroupBy(f => f.Destination)
+                .OrderBy(g => g.Key);
+
+            Console.WriteLine("\n=== Flights Grouped by Destination ===");
+            foreach (var group in groupedFlights)
+            {
+                Console.WriteLine($"\nDestination: {group.Key}");
+                Console.WriteLine($"Number of flights: {group.Count()}");
+                foreach (var flight in group)
+                {
+                    Console.WriteLine($"  - Flight {flight.FlightId}: {flight.FlightDate:yyyy-MM-dd HH:mm}, Duration: {flight.EstimatedDuration} min");
+                }
+            }
+        }
+
+        // ==========================================
+        // Q16: Section II rewritten with LINQ methods
+        // ==========================================
+
+        // Q6 - Rewritten with LINQ (same as Q9)
+        public List<DateTime> GetFlightDatesLinqV2(string destination)
+        {
+            return Flights
+                .Where(f => f.Destination.Equals(destination, StringComparison.OrdinalIgnoreCase))
+                .Select(f => f.FlightDate)
+                .ToList();
+        }
+
+        // Q7 - Rewritten with LINQ (same as Q9)
+        public List<DateTime> GetFlightDatesForEachLinq(string destination)
+        {
+            return Flights
+                .Where(f => f.Destination.Equals(destination, StringComparison.OrdinalIgnoreCase))
+                .Select(f => f.FlightDate)
+                .ToList();
+        }
+
+        // Q8 - Dynamic filtering rewritten with LINQ
+        public List<Flight> GetFlightsLinq(string filterType, string filterValue)
+        {
+            return Flights
+                .Where(flight =>
+                {
+                    var property = typeof(Flight).GetProperty(filterType);
+                    if (property != null)
+                    {
+                        var value = property.GetValue(flight);
+                        return value != null && value.ToString().Equals(filterValue, StringComparison.OrdinalIgnoreCase);
+                    }
+                    return false;
+                })
+                .ToList();
+        }
     }
 }
 
