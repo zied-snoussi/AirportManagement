@@ -13,6 +13,7 @@ namespace AM.ApplicationCore.Domain
         public string Destination { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public DateTime EstimatedArrival { get; set; }
+        public int EstimatedDuration { get; set; } // Duration in minutes
 
         // Navigation property: Many Flights belong to one Plane
         public int PlaneId { get; set; }

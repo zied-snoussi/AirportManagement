@@ -200,3 +200,194 @@ foreach (var date in lisbonneDates)
 Console.WriteLine();
 
 Console.WriteLine("========== TP Part 2 Tests Completed! ==========");
+
+// ==========================================
+// Q7: GetFlightDates using FOREACH loop
+// ==========================================
+Console.WriteLine("\nQ7: Testing GetFlightDatesForEach() for destination 'Paris'");
+List<DateTime> parisDatesForeach = serviceFlight.GetFlightDatesForEach("Paris");
+Console.WriteLine($"Found {parisDatesForeach.Count} flights to Paris (using foreach):");
+foreach (var date in parisDatesForeach)
+{
+    Console.WriteLine($"  - {date:yyyy-MM-dd HH:mm}");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q8: Dynamic filtering
+// ==========================================
+Console.WriteLine("Q8: Testing GetFlights() with dynamic filtering");
+Console.WriteLine("Filter by Destination = 'Madrid':");
+List<Flight> madridFlights = serviceFlight.GetFlights("Destination", "Madrid");
+foreach (var flight in madridFlights)
+{
+    Console.WriteLine($"  - {flight.ToString()}");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q9: GetFlightDates using LINQ
+// ==========================================
+Console.WriteLine("Q9: Testing GetFlightDatesLinq() for destination 'Lisbonne'");
+List<DateTime> lisbonneDatesLinq = serviceFlight.GetFlightDatesLinq("Lisbonne");
+Console.WriteLine($"Found {lisbonneDatesLinq.Count} flights to Lisbonne (using LINQ):");
+foreach (var date in lisbonneDatesLinq)
+{
+    Console.WriteLine($"  - {date:yyyy-MM-dd HH:mm}");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q10: Show flight details by plane
+// ==========================================
+Console.WriteLine("Q10: Testing ShowFlightDetailsByPlane()");
+serviceFlight.ShowFlightDetailsByPlane(TestData.BoingPlane);
+serviceFlight.ShowFlightDetailsByPlane(TestData.AirbusPlane);
+Console.WriteLine();
+
+// ==========================================
+// Q11: Weekly flight count
+// ==========================================
+Console.WriteLine("Q11: Testing GetWeeklyFlightCount()");
+DateTime startDate = new DateTime(2024, 6, 15);
+int weeklyCount = serviceFlight.GetWeeklyFlightCount(startDate);
+Console.WriteLine($"Number of flights in the week starting {startDate:yyyy-MM-dd}: {weeklyCount}");
+Console.WriteLine();
+
+Console.WriteLine("Q11.2: Testing GetWeeklyFlightCountQuery() - LINQ Query Syntax");
+int weeklyCountQuery = serviceFlight.GetWeeklyFlightCountQuery(startDate);
+Console.WriteLine($"Number of flights in the week starting {startDate:yyyy-MM-dd}: {weeklyCountQuery}");
+Console.WriteLine("Note: Lambda method uses Count(predicate), Query syntax uses from...where...select");
+Console.WriteLine();
+
+// ==========================================
+// Q12: Average flight duration
+// ==========================================
+Console.WriteLine("Q12: Testing GetAverageFlightDuration()");
+double avgParis = serviceFlight.GetAverageFlightDuration("Paris");
+Console.WriteLine($"Average duration for flights to Paris: {avgParis} minutes");
+double avgMadrid = serviceFlight.GetAverageFlightDuration("Madrid");
+Console.WriteLine($"Average duration for flights to Madrid: {avgMadrid} minutes");
+double avgLisbonne = serviceFlight.GetAverageFlightDuration("Lisbonne");
+Console.WriteLine($"Average duration for flights to Lisbonne: {avgLisbonne} minutes");
+Console.WriteLine();
+
+Console.WriteLine("Q12.2: Testing GetAverageFlightDurationQuery() - LINQ Query Syntax");
+double avgParisQuery = serviceFlight.GetAverageFlightDurationQuery("Paris");
+Console.WriteLine($"Average duration for flights to Paris: {avgParisQuery} minutes (Query Syntax)");
+double avgMadridQuery = serviceFlight.GetAverageFlightDurationQuery("Madrid");
+Console.WriteLine($"Average duration for flights to Madrid: {avgMadridQuery} minutes (Query Syntax)");
+Console.WriteLine("Note: Uses ternary operator (? :) for null safety with Any() check");
+Console.WriteLine();
+
+// ==========================================
+// Q13: Ordered flights by duration
+// ==========================================
+Console.WriteLine("Q13: Testing GetOrderedFlightsByDuration() - Longest to Shortest");
+List<Flight> orderedFlights = serviceFlight.GetOrderedFlightsByDuration();
+foreach (var flight in orderedFlights)
+{
+    Console.WriteLine($"  - Flight {flight.FlightId} to {flight.Destination}: {flight.EstimatedDuration} minutes");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q14: Senior travellers
+// ==========================================
+Console.WriteLine("Q14: Testing GetSeniorTravellers() for Flight 1");
+List<Traveller> seniorTravellers = serviceFlight.GetSeniorTravellers(TestData.Flight1);
+Console.WriteLine($"3 oldest travellers in Flight 1:");
+foreach (var traveller in seniorTravellers)
+{
+    Console.WriteLine($"  - {traveller.FirstName} {traveller.LastName}, Born: {traveller.BirthDate:yyyy-MM-dd}");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q15: Grouped flights by destination
+// ==========================================
+Console.WriteLine("Q15: Testing ShowFlightsGroupedByDestination()");
+serviceFlight.ShowFlightsGroupedByDestination();
+Console.WriteLine();
+
+Console.WriteLine("\n========== TP Part 2 All Tests Completed Successfully! ==========");
+
+Console.WriteLine("\n\n========== TP Part 2 - Q16 & Q17 ==========\n");
+
+// ==========================================
+// Q16: Section II rewritten with LINQ
+// ==========================================
+Console.WriteLine("Q16: Testing Section II methods rewritten with LINQ");
+Console.WriteLine("\nQ6 Rewritten - GetFlightDatesLinqV2() for 'Paris':");
+List<DateTime> parisLinqV2 = serviceFlight.GetFlightDatesLinqV2("Paris");
+Console.WriteLine($"Found {parisLinqV2.Count} flights to Paris (LINQ version):");
+foreach (var date in parisLinqV2)
+{
+    Console.WriteLine($"  - {date:yyyy-MM-dd HH:mm}");
+}
+Console.WriteLine();
+
+Console.WriteLine("Q7 Rewritten - GetFlightDatesForEachLinq() for 'Madrid':");
+List<DateTime> madridLinq = serviceFlight.GetFlightDatesForEachLinq("Madrid");
+Console.WriteLine($"Found {madridLinq.Count} flights to Madrid (LINQ version):");
+foreach (var date in madridLinq)
+{
+    Console.WriteLine($"  - {date:yyyy-MM-dd HH:mm}");
+}
+Console.WriteLine();
+
+Console.WriteLine("Q8 Rewritten - GetFlightsLinq() filtering by Destination='Lisbonne':");
+List<Flight> lisbonneFlightsLinq = serviceFlight.GetFlightsLinq("Destination", "Lisbonne");
+Console.WriteLine($"Found {lisbonneFlightsLinq.Count} flights to Lisbonne (LINQ version):");
+foreach (var flight in lisbonneFlightsLinq)
+{
+    Console.WriteLine($"  - {flight.ToString()}");
+}
+Console.WriteLine();
+
+// ==========================================
+// Q17: Extension Method - UpperFullName
+// ==========================================
+Console.WriteLine("Q17: Testing PassengerExtension.UpperFullName()");
+
+// Test with different passenger types
+Passenger testPassenger = new Passenger
+{
+    FirstName = "jean",
+    LastName = "dupont",
+    Email = "jean.dupont@email.com"
+};
+
+Staff testStaff = new Staff
+{
+    FirstName = "marie",
+    LastName = "leclerc",
+    Function = "Hostess"
+};
+
+Traveller testTraveller = new Traveller
+{
+    FirstName = "JOHN",
+    LastName = "SMITH",
+    Nationality = "American"
+};
+
+Console.WriteLine($"\nOriginal: {testPassenger.FirstName} {testPassenger.LastName}");
+Console.WriteLine($"UpperFullName: {testPassenger.UpperFullName()}");
+
+Console.WriteLine($"\nOriginal: {testStaff.FirstName} {testStaff.LastName}");
+Console.WriteLine($"UpperFullName: {testStaff.UpperFullName()}");
+
+Console.WriteLine($"\nOriginal: {testTraveller.FirstName} {testTraveller.LastName}");
+Console.WriteLine($"UpperFullName: {testTraveller.UpperFullName()}");
+
+// Test with TestData passengers
+Console.WriteLine("\n\nApplying UpperFullName to all passengers in Flight 1:");
+foreach (var passenger in TestData.Flight1.Passengers)
+{
+    Console.WriteLine($"  - {passenger.UpperFullName()} ({passenger.GetType().Name})");
+}
+
+Console.WriteLine("\n========== Q16 & Q17 Tests Completed Successfully! ==========");
+
+

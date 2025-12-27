@@ -134,6 +134,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 6, 15, 10, 0, 0),
             EstimatedArrival = new DateTime(2024, 6, 15, 14, 30, 0),
             EffectiveArrival = new DateTime(2024, 6, 15, 14, 25, 0),
+            EstimatedDuration = 270,
             Plane = BoingPlane,
             Passengers = new List<Passenger> { Traveller1, Traveller2, Traveller3, Traveller4, Traveller5, Captain, Hostess1 }
         };
@@ -145,6 +146,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 6, 20, 8, 0, 0),
             EstimatedArrival = new DateTime(2024, 6, 20, 12, 0, 0),
             EffectiveArrival = new DateTime(2024, 6, 20, 11, 55, 0),
+            EstimatedDuration = 240,
             Plane = AirbusPlane,
             Passengers = new List<Passenger> { Traveller1, Traveller2, Captain, Hostess2 }
         };
@@ -156,6 +158,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 7, 5, 15, 0, 0),
             EstimatedArrival = new DateTime(2024, 7, 5, 18, 30, 0),
             EffectiveArrival = new DateTime(2024, 7, 5, 18, 40, 0),
+            EstimatedDuration = 210,
             Plane = BoingPlane,
             Passengers = new List<Passenger> { Traveller3, Traveller4, Captain, Hostess1 }
         };
@@ -167,6 +170,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 7, 10, 12, 0, 0),
             EstimatedArrival = new DateTime(2024, 7, 10, 16, 30, 0),
             EffectiveArrival = new DateTime(2024, 7, 10, 16, 20, 0),
+            EstimatedDuration = 270,
             Plane = AirbusPlane,
             Passengers = new List<Passenger> { Traveller2, Traveller5, Captain, Hostess2 }
         };
@@ -178,6 +182,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 7, 15, 9, 0, 0),
             EstimatedArrival = new DateTime(2024, 7, 15, 13, 0, 0),
             EffectiveArrival = new DateTime(2024, 7, 15, 13, 10, 0),
+            EstimatedDuration = 240,
             Plane = BoingPlane,
             Passengers = new List<Passenger> { Traveller1, Traveller3, Traveller5, Captain, Hostess1 }
         };
@@ -189,6 +194,7 @@ namespace AM.ApplicationCore.Domain
             FlightDate = new DateTime(2024, 7, 20, 14, 0, 0),
             EstimatedArrival = new DateTime(2024, 7, 20, 17, 30, 0),
             EffectiveArrival = new DateTime(2024, 7, 20, 17, 25, 0),
+            EstimatedDuration = 210,
             Plane = AirbusPlane,
             Passengers = new List<Passenger> { Traveller2, Traveller4, Captain, Hostess2 }
         };
