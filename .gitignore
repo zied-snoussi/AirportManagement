@@ -361,3 +361,17 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Environment variable overrides for database connection (for development purposes only)
+# appsettings.json fro AM.infra
+AM.infra/appsettings.json
+# appsettings.json for AM.services
+AM.services/appsettings.json
+# appsettings.json for AM.webapi
+AM.webapi/appsettings.json
+# appsettings.json for AM.webapp
+AM.webapp/appsettings.json
+# appsettings.json for AM.console
+AM.console/appsettings.json
+# appsettings.json for AMConsole
+AMConsole/appsettings.json

@@ -2,6 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AM.ApplicationCore\AM.ApplicationCore.csproj" />
+    <ProjectReference Include="..\AM.infra\AM.infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <PropertyGroup>
@@ -12,3 +19,4 @@
   </PropertyGroup>
 
 </Project>
+
