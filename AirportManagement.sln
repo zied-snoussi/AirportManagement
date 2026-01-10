@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMConsole", "AMConsole\AMConsole.csproj", "{088457F7-7854-415C-AA11-484C44FF2BBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.infra", "AM.infra\AM.infra.csproj", "{9528C6AB-C0D5-485E-A448-6386DBBB6868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.ApplicationCore", "AM.ApplicationCore\AM.ApplicationCore.csproj", "{B6077609-3F2B-8A66-7008-7B5C58FCEE91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{088457F7-7854-415C-AA11-484C44FF2BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{088457F7-7854-415C-AA11-484C44FF2BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{088457F7-7854-415C-AA11-484C44FF2BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9528C6AB-C0D5-485E-A448-6386DBBB6868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9528C6AB-C0D5-485E-A448-6386DBBB6868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9528C6AB-C0D5-485E-A448-6386DBBB6868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9528C6AB-C0D5-485E-A448-6386DBBB6868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6077609-3F2B-8A66-7008-7B5C58FCEE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6077609-3F2B-8A66-7008-7B5C58FCEE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6077609-3F2B-8A66-7008-7B5C58FCEE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6077609-3F2B-8A66-7008-7B5C58FCEE91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
